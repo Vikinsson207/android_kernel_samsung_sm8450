@@ -1,1 +1,1 @@
-/home/dpi/qb5_8815/workspace/P4_1716/android/kernel_platform/./msm-kernel/drivers/pinctrl/pinctrl-utils.h
+/home/hoanglong/karnel/kernel_platform/msm-kernel/drivers/pinctrl/pinctrl-utils.h

@@ -2,7 +2,7 @@
 
 
 #1. target config
-BUILD_TARGET=g0q_gbl_openx
+BUILD_TARGET=$1
 export MODEL=$(echo $BUILD_TARGET | cut -d'_' -f1)
 export PROJECT_NAME=${MODEL}
 export REGION=$(echo $BUILD_TARGET | cut -d'_' -f2)
