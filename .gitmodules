@@ -1,0 +1,4 @@
+[submodule "linux-x86"]
+	path = kernel_platform/prebuilts-master/clang/host/linux-x86
+	url = https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86
+	ignore = untracked
