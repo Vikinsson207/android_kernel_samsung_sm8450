@@ -13,9 +13,6 @@ jobs:
     steps:
       - name: Checkout kernel repo
         uses: actions/checkout@v2
-        with:
-          ref: 'master'
-          token: ${{ secrets.TOKEN }}
 
       - name: Install dependencies
         run: |
@@ -43,19 +40,3 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git pull origin ${{github.ref}} --ff-only
           git tag ${{ steps.files.outputs.tag }}
-      - name: Push changes to repo
-        uses: ad-m/github-push-action@master
-        with:
-          tags: true
-          github_token: ${{ secrets.TOKEN }}
-          branch: ${{github.ref}}
-
-      - name: Upload release assets
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          tag_name: ${{ steps.files.outputs.tag }}
-          name: Prebuilts of ${{ steps.files.outputs.date }}
-          files: |
-            ${{ steps.files.outputs.zip }}
