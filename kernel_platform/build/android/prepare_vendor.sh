@@ -195,7 +195,7 @@ if [ "${RECOMPILE_KERNEL}" == "1" ]; then
 
   (
     cd ${ROOT_DIR}
-    SKIP_MRPROPER=1 OUT_DIR=${ANDROID_KP_OUT_DIR} ./build/build.sh
+    SKIP_MRPROPER=1 OUT_DIR=${ANDROID_KP_OUT_DIR} ./build/build.sh LTO=none
   )
 
   COPY_NEEDED=1
