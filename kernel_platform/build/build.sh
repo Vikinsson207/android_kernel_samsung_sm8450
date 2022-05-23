@@ -608,7 +608,7 @@ CC_ARG="${CC}"
 source "${ROOT_DIR}/build/_setup_env.sh"
 
 MAKE_ARGS=( "$@" )
-export MAKEFLAGS="-j$(nproc) ${MAKEFLAGS}"
+export MAKEFLAGS="-j2 ${MAKEFLAGS}"
 export MODULES_STAGING_DIR=$(readlink -m ${COMMON_OUT_DIR}/staging)
 export MODULES_PRIVATE_DIR=$(readlink -m ${COMMON_OUT_DIR}/private)
 export KERNEL_UAPI_HEADERS_DIR=$(readlink -m ${COMMON_OUT_DIR}/kernel_uapi_headers)
@@ -677,7 +677,7 @@ TOOL_ARGS=()
 # specifying CC=clang LD=ld.lld NM=llvm-nm OBJCOPY=llvm-objcopy <etc>, for
 # newer kernel versions.
 if [[ -n "${LLVM}" ]]; then
-  TOOL_ARGS+=("LLVM=1")
+  TOOL_ARGS+=("LLVM=0")
   # Reset a bunch of variables that the kernel's top level Makefile does, just
   # in case someone tries to use these binaries in this script such as in
   # initramfs generation below.
@@ -718,7 +718,7 @@ else
 fi
 
 if [ -n "${LLVM_IAS}" ]; then
-  TOOL_ARGS+=("LLVM_IAS=${LLVM_IAS}")
+  TOOL_ARGS+=("LLVM_IAS=0")
   # Reset $AS for the same reason that we reset $CC etc above.
   AS=clang
 fi
